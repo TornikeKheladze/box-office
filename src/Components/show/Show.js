@@ -4,6 +4,7 @@ import { apiGet } from "../../misc/config";
 import Cast from "./Cast";
 import Details from "./Details";
 import Seasons from "./Seasons";
+import { InfoBlock, ShowPageWrapper } from "./Show.styled";
 import ShowMainData from "./ShowMainData";
 
 const reducer = (prevState, action) => {
@@ -61,7 +62,7 @@ const Show = () => {
   console.log(show);
 
   return (
-    <div>
+    <ShowPageWrapper>
       <ShowMainData
         image={show.image}
         name={show.name}
@@ -69,23 +70,23 @@ const Show = () => {
         summary={show.summary}
         tags={show.genres}
       />
-      <div>
+      <InfoBlock>
         <h2>Details</h2>
         <Details
           status={show.status}
           network={show.network}
           premiered={show.premiered}
         />
-      </div>
-      <div>
+      </InfoBlock>
+      <InfoBlock>
         <h1>Seasons</h1>
         <Seasons seasons={show._embedded.seasons} />
-      </div>
-      <div>
+      </InfoBlock>
+      <InfoBlock>
         <h1>Cast</h1>
         <Cast cast={show._embedded.cast} />
-      </div>
-    </div>
+      </InfoBlock>
+    </ShowPageWrapper>
   );
 };
 

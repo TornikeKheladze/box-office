@@ -37,6 +37,7 @@ const Home = () => {
       return <NoResultsWrapper>no results</NoResultsWrapper>;
     }
     if (results && results.length > 0) {
+      console.log(results);
       return results[0].show ? (
         <ShowGrid data={results} />
       ) : (
